@@ -7,9 +7,9 @@ import MealItem from "./MealItem/MealItem";
 const DUMMY_MEALS = [
 	{
 		id: "m1",
-		name: "Sushi",
-		description: "Finest fish and veggies",
-		price: 22.99,
+		name: "Pizza",
+		description: "Finest snacks in town",
+		price: 10.99,
 	},
 	{
 		id: "m2",
@@ -28,6 +28,18 @@ const DUMMY_MEALS = [
 		name: "Green Bowl",
 		description: "Healthy...and green...",
 		price: 18.99,
+	},
+	{
+		id: "m5",
+		name: "Suya",
+		description: "Healthy...and barbeque",
+		price: 18.99,
+	},
+	{
+		id: "m6",
+		name: "Jellof Rice & Chicken",
+		description: "Amazing combo..",
+		price: 21.99,
 	},
 ];
 
