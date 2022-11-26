@@ -10,7 +10,9 @@ const Cart = (props) => {
 	const totalAmount = cartCtx.totalAmount.toFixed(2);
 	const hasItems = cartCtx.items.length > 0;
 
-	const certItemRemoveHandler = (id) => {};
+	const certItemRemoveHandler = (id) => {
+		cartCtx.removeItem(id);
+	};
 	const cartItemAddHandler = (item) => {
 		cartCtx.addItem({ ...item, quantity: 1 });
 	};
@@ -31,8 +33,8 @@ const Cart = (props) => {
 		</ul>
 	);
 
-	return (
-		<Modal onClose={props.closeCartHandler}>
+	const content = hasItems ? (
+		<>
 			{cartItems}
 			<div className={classes.total}>
 				<span>Total Amount</span>
@@ -44,8 +46,19 @@ const Cart = (props) => {
 				</button>
 				{hasItems && <button className={classes.button}>Order</button>}
 			</div>
-		</Modal>
+		</>
+	) : (
+		<>
+			<div className={classes.empty}>
+				<h1>Your cart is empty!</h1>
+				<button className={classes["button--alt"]} onClick={props.closeCartHandler}>
+					Continue Shopping
+				</button>
+			</div>
+		</>
 	);
+
+	return <Modal onClose={props.closeCartHandler}>{content}</Modal>;
 };
 
 export default Cart;
